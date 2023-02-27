@@ -108,5 +108,32 @@ class Game(object):
 
         return False
 
-# write def_logic() here...
+# write run_logic() here...
+def run_logic(self):
+    if not self.game_over:
+        self.player.update(self.horizontal_blocks,self.vertical_blocks)
+        block_hit_list = pygame.sprite.spritecollide(self.player,self.dots_group,True)
+        
+        if len(block_hit_list) > 0: # if pacman collects a dot... 
+            # triggers the sound effect
+            self.pacman_sound.play()
+            self.score += 1
+        
+        block_hit_list = pygame.sprite.spritecollide(self.player,self.enemies,True)
+        if len(block_hit_list) > 0:
+            # if pacman collides with a ghost, it will trigger the explosion sound
+            # and play the game over sound
+            self.player.explosion = True
+            self.game_over_sound.play()
+        self.game_over = self.player.game_over
+        self.enemies.update(self.horizontal_blocks,self.vertical_blocks)
+        # here is the code to add a final score screen
+        # tkMessageBox.showinfo("GAME OVER!", "Final Score = "+(str)(GAME.score))
+
+
+
+
+
+
+
 
