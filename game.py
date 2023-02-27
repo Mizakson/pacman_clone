@@ -108,32 +108,59 @@ class Game(object):
 
         return False
 
-# write run_logic() here...
-def run_logic(self):
-    if not self.game_over:
-        self.player.update(self.horizontal_blocks,self.vertical_blocks)
-        block_hit_list = pygame.sprite.spritecollide(self.player,self.dots_group,True)
+    # run_logic function
+    def run_logic(self):
+        if not self.game_over:
+            self.player.update(self.horizontal_blocks,self.vertical_blocks)
+            block_hit_list = pygame.sprite.spritecollide(self.player,self.dots_group,True)
+            
+            if len(block_hit_list) > 0: # if pacman collects a dot... 
+                # triggers the sound effect
+                self.pacman_sound.play()
+                self.score += 1
+            
+            block_hit_list = pygame.sprite.spritecollide(self.player,self.enemies,True)
+            if len(block_hit_list) > 0:
+                # if pacman collides with a ghost, it will trigger the explosion sound
+                # and play the game over sound
+                self.player.explosion = True
+                self.game_over_sound.play()
+            self.game_over = self.player.game_over
+            self.enemies.update(self.horizontal_blocks,self.vertical_blocks)
+            # here is the code to add a final score screen
+            # tkMessageBox.showinfo("GAME OVER!", "Final Score = "+(str)(GAME.score))
         
-        if len(block_hit_list) > 0: # if pacman collects a dot... 
-            # triggers the sound effect
-            self.pacman_sound.play()
-            self.score += 1
-        
-        block_hit_list = pygame.sprite.spritecollide(self.player,self.enemies,True)
-        if len(block_hit_list) > 0:
-            # if pacman collides with a ghost, it will trigger the explosion sound
-            # and play the game over sound
-            self.player.explosion = True
-            self.game_over_sound.play()
-        self.game_over = self.player.game_over
-        self.enemies.update(self.horizontal_blocks,self.vertical_blocks)
-        # here is the code to add a final score screen
-        # tkMessageBox.showinfo("GAME OVER!", "Final Score = "+(str)(GAME.score))
 
+    def display_frame(self,screen):
+        screen.fill(BLACK)
 
+        if self.game_over:
+            if self.about: # about screen message
+                self.display_message(screen, "A Program by Mizakson \n"
+                " \n "
+                "This project is a clone of the classic game pacman \n"
+                " \n "
+                "Created using: pygame, tkinter \n"
+                " \n "
+                "Check out the GitHub repo to view and use the source code! :)"
+                )
 
+            else:
+                self.menu.display_frame(screen)
 
+        else:
+            # drawing of the game goes here
+            self.horizontal_blocks.draw(screen)
+            self.vertical_blocks.draw(scree)
+            draw_enviroment(screen)
+            self.dots_group.draw(screen)
+            self.enemies.draw(screen)
+            screen.blit(self.player.image,self.player.rect)
+            text=self.font.render("Score: "+(str)(self.score), 1,self.RED) # text for the score
+            screen.blit(text, (30, 650))
+            
+        pygame.display.flip()
 
-
-
+    def display_message():
+        pass
 
