@@ -62,5 +62,51 @@ class Game(object):
         self.pacman_sound = pygame.mixer.Sound("pacman_sound.ogg")
         self.game_over_sound = pygame.mixer.Sound("game_over_sound.ogg")
 
+    def process_events(self):
+        for event in pygame.event.get(): # User action
+            if event.type == pygame.QUIT: # If user clicks exit
+                return True
+            self.menu.event_handler(event)
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    if self.game_over and not self.about:
+                        if self.menu.state == 0:
+                            # Start section of main menu
+                            self.__init__()
+                            self.game_over = False
+                        elif self.menu.stae == 1:
+                            # About section of main menu
+                            self.about = True
+                        elif self.menu.state == 2:
+                            # Exit
+                            return True
 
-        
+
+                # event keys for player movement and exit
+                elif event.key == pygame.K_RIGHT:
+                    self.player.move_right()
+
+                elif event.key == pygame.K_LEFT:
+                    self.player.move_left()
+
+                elif event.key == pygame.K_UP:
+                    self.player.move.up()
+
+                elif event.key == pygame.K_DOWN:
+                    self.player.move_down()
+
+            # stopping player movement in game
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    self.player.stop_move_right()
+                elif event.key == pygame.K_LEFT:
+                    self.player.stop_move_left()
+                elif event.key == pygame.K_UP:
+                    self.player.stop_move_up()
+                elif event.key == pygame.K_DOWN:
+                    self.player.stop_move_down()
+
+        return False
+
+# write def_logic() here...
+
