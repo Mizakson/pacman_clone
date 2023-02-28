@@ -161,8 +161,10 @@ class Game(object):
             self.dots_group.draw(screen)
             self.enemies.draw(screen)
             screen.blit(self.player.image,self.player.rect)
-            text=self.font.render("Score: "+(str)(self.score), 1,self.RED) # text for the score
-            screen.blit(text, (30, 650))
+            # Render the text for the score
+            text = self.font.render("Score: " + str(self.score),True,GREEN)
+            # Put the text on the screen
+            screen.blit(text,[120,20])    
             
         pygame.display.flip()
 
@@ -195,7 +197,7 @@ class Menu(object):
             if self.state == index:
                 label = self.font.render(item,True,self.select_color)
             else:
-                label = self.font.render(item,True,self.select_color)
+                label = self.font.render(item,True,self.font_color)
 
             width = label.get_width()
             height = label.get_height()
