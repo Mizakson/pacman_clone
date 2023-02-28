@@ -152,3 +152,10 @@ class Animation(object):
                 self.image_list.append(img)
 
     # get_images function
+    def get_image(self,x,y,width,height):
+
+        # making a new blank image
+        image = pygame.Surface([width,height]).convert()
+
+        # copy the sprite from the large sheet onto the smaller one
+        image.blit(self.sprite_sheet, (0,0),(x,y,width,height))
