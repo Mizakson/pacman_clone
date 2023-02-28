@@ -161,6 +161,18 @@ class Game(object):
             
         pygame.display.flip()
 
-    def display_message():
-        pass
+    def display_message(self,screen,message,color=(255,0,0)):
+        label = self.font.render(message,True,color)
+
+        # label width + height
+        width = label.get_width()
+        height = label.get_height()
+
+        # determine label position
+        posX = (SCREEN_WIDTH /2) - (width /2)
+        posY = (SCREEN_HEIGHT /2) - (height /2)
+
+        # draw label onto the screen
+        screen.blit(label,(posX,posY))
+
 
