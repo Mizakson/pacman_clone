@@ -122,3 +122,33 @@ class Player(pygame.sprite.Sprite):
             self.change_y = 0
 
 
+
+# animation class
+class Animation(object):
+    def __init__(self,img,width,height):
+
+        # load sprite sheet
+        self.sprite_sheet = img
+
+        # create a list to store images
+        self.image_list = []
+        self.load_images(width,height)
+
+        # create a variable that holds the current image of the list itself
+        self.index = 0
+
+        # create a variable that holds time
+        self.clock = 1
+
+
+    # load_images function
+    def load_images(self,width,height):
+        # go through every image in the sprite sheet
+        for y in range(0,self.sprite_sheet.get_height(),height):
+            for x in range(0,self.sprite_sheet.get_width(),width):
+
+                # load images into a list
+                img = self.get_image(x,y,width,height)
+                self.image_list.append(img)
+
+    # get_images function
