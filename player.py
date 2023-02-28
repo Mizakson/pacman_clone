@@ -119,7 +119,7 @@ class Player(pygame.sprite.Sprite):
     def stop_move_down(self):
         if self.change_y != 0:
             self.image = pygame.transform.rotate(self.player_image, 270)
-            self.change_y = 0
+        self.change_y = 0
 
 
 
