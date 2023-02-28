@@ -21,7 +21,7 @@ class Game(object):
         # create score variable
         self.score = 0
         # create font that displays user score
-        self.font = pygame.font.Font(None, 25)
+        self.font = pygame.font.Font(None,25)
         # create start meny
         self.menu = Menu(("Start","About","Exit"),font_color = WHITE,font_size=55)
         # create player, using pacman img
@@ -75,7 +75,7 @@ class Game(object):
                             # Start section of main menu
                             self.__init__()
                             self.game_over = False
-                        elif self.menu.stae == 1:
+                        elif self.menu.state == 1:
                             # About section of main menu
                             self.about = True
                         elif self.menu.state == 2:
