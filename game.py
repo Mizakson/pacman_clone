@@ -200,7 +200,7 @@ class Menu(object):
 
             # t_h (total height of the text block)
             t_h = len(self.items) * height
-            posY = (SCREEN_HEIGHT) - (t_h /2) + (index * height)
+            posY = (SCREEN_HEIGHT /2) - (t_h /2) + (index * height)
 
             screen.blit(label,(posX,posY))
 
