@@ -96,6 +96,10 @@ class Game(object):
                 elif event.key == pygame.K_DOWN:
                     self.player.move_down()
 
+                elif event.key == pygame.K_ESCAPE:
+                    self.game_over = True
+                    self.about = False    
+
             # stopping player movement in game
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
