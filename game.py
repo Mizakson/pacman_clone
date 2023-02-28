@@ -35,7 +35,7 @@ class Game(object):
         self.dots_group = pygame.sprite.Group()
 
         # set the environment
-        for i, row in enumerate(enviroment()):
+        for i, row in enumerate(environment()):
             for j,item in enumerate(row):
                 if item == 1:
                     self.horizontal_blocks.add(Block(j*32+8,i*32+8,BLACK,16,16))
@@ -157,7 +157,7 @@ class Game(object):
             # drawing of the game goes here
             self.horizontal_blocks.draw(screen)
             self.vertical_blocks.draw(screen)
-            draw_enviroment(screen)
+            draw_environment(screen)
             self.dots_group.draw(screen)
             self.enemies.draw(screen)
             screen.blit(self.player.image,self.player.rect)
