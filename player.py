@@ -30,7 +30,7 @@ class Player(pygame.sprite.Sprite):
         self.move_right_animation = Animation(img,32,32)
         self.move_left_animation = Animation(pygame.transform.flip(img,True,False),32,32)
         self.move_up_animation = Animation(pygame.transform.rotate(img,90),32,32)
-        self.move_down_animation = Animation(pygame.transform.rotate(img,270),32,32)
+        self.move_down_animation = Animation(pygame.transform.rotate(img, 270),32,32)
 
         # load explosion image
         img = pygame.image.load("explosion.png").convert()
@@ -75,7 +75,7 @@ class Player(pygame.sprite.Sprite):
 
             if self.change_y > 0:
                 self.move_down_animation.update(10)
-                self.move_down_animation.get_current_image()
+                self.image = self.move_down_animation.get_current_image()
             elif self.change_y < 0:
                 self.move_up_animation.update(10)
                 self.image = self.move_up_animation.get_current_image()
