@@ -109,7 +109,6 @@ class Slime(pygame.sprite.Sprite):
 
 # making the environment (the maze that pacman and the ghosts move through)
 def environment():
-
 # this is the basic grid used from pygame maze examples and pacman game examples
     grid = ((0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0),
             (0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0),
@@ -129,12 +128,11 @@ def environment():
             (0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0),
             (0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0),
             (0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0))
-
     return grid
 
 # drawing the environment
 # template code to draw the env == pygame.draw.line(surface, color, start_pos, end_pos)
-def draw_environment():
+def draw_environment(screen):
     for i,row in enumerate(environment()):
         for j,item in enumerate(row):
             if item == 1:
