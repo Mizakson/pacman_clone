@@ -34,7 +34,7 @@ class Ellipse(pygame.sprite.Sprite):
         # call parent class (Sprite) constructor
         pygame.sprite.Sprite.__init__(self)
 
-        # set background color (and make it black)
+        # set background color (and make it transparent)
         self.image = pygame.Surface([width,height])
         self.image.fill(BLACK)
         self.image.set_colorkey(BLACK)
