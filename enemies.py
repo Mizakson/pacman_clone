@@ -46,7 +46,7 @@ class Ellipse(pygame.sprite.Sprite):
 
 
 # Slime class creation
-class Slime(self,x,y,change_x,change_y):
+class Slime(pygame.sprite.Sprite):
     def __init__(self,x,y,change_x,change_y):
 
         # call parent class (Sprite) constructor

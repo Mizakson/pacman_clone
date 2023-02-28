@@ -14,14 +14,14 @@ RED = (255,0,0)
 
 class Game(object):
     def __init__(self):
-        self.font = pygame.font.Font(SysFont, 40)
+        self.font = pygame.font.Font(None, 40)
         self.about = False
         self.game_over = True
         
         # create score variable
         self.score = 0
         # create font that displays user score
-        self.font = pygame.font.Font(SysFont, 25)
+        self.font = pygame.font.Font(None, 25)
         # create start meny
         self.menu = Menu(("Start","About","Exit"),font_color = WHITE,font_size=55)
         # create player, using pacman img
@@ -36,10 +36,11 @@ class Game(object):
 
         # set the environment
         for i, row in enumerate(environment()):
-            if item == 1:
-                self.horizontal_blocks.add(Block(j*32+8,i*32+8,BLACK,16,16))
-            elif item == 2:
-                self.vertical_blocks.add(Block(j*32+8,i*32+8,BLACK,16,16))
+            for j,item in enumerate(row):
+                if item == 1:
+                    self.horizontal_blocks.add(Block(j*32+8,i*32+8,BLACK,16,16))
+                elif item == 2:
+                    self.vertical_blocks.add(Block(j*32+8,i*32+8,BLACK,16,16))
 
         # make the ghosts (enemies)
         self.enemies = pygame.sprite.Group()

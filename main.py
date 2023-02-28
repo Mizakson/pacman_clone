@@ -43,7 +43,7 @@ def main():
         clock.tick(30)
 
         # final score message 
-        tkMessageBox.showinfo("GAME OVER!","Final Score = "+(str)(Game.score))
+        # tkMessageBox.showinfo("GAME OVER!","Final Score = "+(str)(Game.score))
 
 
     # exit the game
