@@ -88,10 +88,37 @@ class Player(pygame.sprite.Sprite):
             self.image = self.explosion_animation.get_current_image()
 
     # defining player movement functions
+    def move_right(self):
+        self.change_x = 3
+
+    def move_left(self):
+        self.change_x = -3
+
+    def move_up(self):
+        self.change_y = -3
+
+    def move_down(self):
+        self.change_y = 3
 
 
+    def stop_move_right(self):
+        if self.change_x != 0:
+            self.image = self.player_image
+        self.change_x = 0
 
+    def stop_move_left(self):
+        if self.change_x != 0:
+            self.image = pygame.transform.flip(self.player_image, True, False)
+        self.change_x = 0
 
+    def stop_move_up(self):
+        if self.change_y != 0:
+            self.image = pygame.transform.rotate(self.player_image, 90)
+            self.change_y = 0
 
+    def stop_move_down(self):
+        if self.change_y != 0:
+            self.image = pygame.transform.rotate(self.player_image, 270)
+            self.change_y = 0
 
 
