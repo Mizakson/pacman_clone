@@ -41,7 +41,6 @@ def main():
 
         # limit game to 30 fps
         clock.tick(30)
-
         # final score message 
         # tkMessageBox.showinfo("GAME OVER!","Final Score = "+(str)(Game.score))
 
