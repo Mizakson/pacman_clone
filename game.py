@@ -156,7 +156,7 @@ class Game(object):
         else:
             # drawing of the game goes here
             self.horizontal_blocks.draw(screen)
-            self.vertical_blocks.draw(scree)
+            self.vertical_blocks.draw(screen)
             draw_enviroment(screen)
             self.dots_group.draw(screen)
             self.enemies.draw(screen)
