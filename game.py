@@ -91,7 +91,7 @@ class Game(object):
                     self.player.move_left()
 
                 elif event.key == pygame.K_UP:
-                    self.player.move.up()
+                    self.player.move_up()
 
                 elif event.key == pygame.K_DOWN:
                     self.player.move_down()
