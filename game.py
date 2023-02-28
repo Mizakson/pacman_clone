@@ -141,14 +141,8 @@ class Game(object):
 
         if self.game_over:
             if self.about: # about screen message
-                self.display_message(screen, "A Program by Mizakson \n"
-                " \n "
-                "This project is a clone of the classic game pacman \n"
-                " \n "
-                "Created using: pygame, tkinter \n"
-                " \n "
-                "Check out the GitHub repo to view and use the source code! :)"
-                )
+                self.display_message(screen,"A Program by Mizakson")
+
 
             else:
                 self.menu.display_frame(screen)
@@ -157,7 +151,7 @@ class Game(object):
             # drawing of the game goes here
             self.horizontal_blocks.draw(screen)
             self.vertical_blocks.draw(screen)
-            draw_environment(screen)
+            draw_enviroment(screen)
             self.dots_group.draw(screen)
             self.enemies.draw(screen)
             screen.blit(self.player.image,self.player.rect)

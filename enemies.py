@@ -134,7 +134,7 @@ def environment():
 
 # drawing the environment
 # template code to draw the env == pygame.draw.line(surface, color, start_pos, end_pos)
-def draw_enviroment():
+def draw_environment():
     for i,row in enumerate(environment()):
         for j,item in enumerate(row):
             if item == 1:
