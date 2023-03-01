@@ -1,0 +1,8 @@
+Here are the changes I am going to make to improve the program
+
+
+1. Add a multi-line message in the 'About' section
+2. Make the background color for the images of the ghosts transparent
+3. Add a messagebox that displays the users final score after the game finishes
+
+
