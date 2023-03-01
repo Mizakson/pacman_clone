@@ -1,4 +1,4 @@
-# mizakson_pacman_clone
+# pacman_clone
 
 This project is a clone of the classic arcade game PACMAN
 
